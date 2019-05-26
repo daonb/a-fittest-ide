@@ -1,0 +1,58 @@
+<section class="social-tools">
+
+    {% if SOCIAL_SHARE_BUTTONS %}
+    <div class="social-tools__title">
+      <p>Share this post</p>
+    </div>
+
+    <div class="social-tools__buttons">
+    {% for social_service in SOCIAL_SHARE_BUTTONS %}
+      {% if social_service == 'hatebu' %}
+      {# Hatena Bookmark #}
+      <a href="http://b.hatena.ne.jp/entry/{{ SITEURL }}/{{ article.url }}"
+         class="hatebu-share-button hatena-bookmark-button"
+         data-hatena-bookmark-title="{{ SITENAME }} - {{ article.title }}"
+         data-hatena-bookmark-layout="simple"
+         title="このエントリーをはてなブックマークに追加" >
+        <i class="fa fa-hatebu"></i>
+      </a>
+      <script type="text/javascript"
+         src="https://b.st-hatena.com/js/bookmark_button.js"
+         charset="utf-8"
+         async="async"
+      ></script>
+
+      {# Hatena Bookmark END #}
+      {# Facebook Like Button #}
+      {% elif social_service == 'facebook' %}
+      <a class="facebook-share-button"
+         href="https://www.facebook.com/sharer/sharer.php?u={{ SITEURL }}/{{ article.url }}"
+         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" >
+        <i class="fab fa-facebook"></i>
+      </a>
+      {# Facebook Like Button END #}
+      {# Tweet Button #}
+      {% elif social_service == 'twitter' %}
+      <a class="tweet-blogpost-button"
+         href="https://twitter.com/share?url={{ SITEURL }}/{{ article.url }}&text={{ SITENAME }} - {{ article.title }}"
+         onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470'); return false;" >
+        <i class="fab fa-twitter"></i>
+      </a>
+      {# Tweet Button END #}
+
+      {# Pocket Button #}
+      {% elif social_service == 'pocket' %}
+      <a class="pocket-add-button"
+         href="https://getpocket.com/edit?url={{ SITEURL }}/{{ article.url }}&title={{ article.title }}"
+         onclick="window.open(this.href, 'add-to-get-pocket', 'width=490,height=530');return false;"
+         title="add to pocket" >
+        <i class="fab fa-get-pocket"></i>
+      </a>
+      {% endif %}
+      {# Pocket Button END #}
+    {% endfor %}
+    </div>
+    {% endif %}
+
+
+</section>
