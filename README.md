@@ -3,17 +3,12 @@
 
 ## Installation
 
+[TODO]
+
+
 Assuming you use a debian based OS:
 
 ```bash
-sudo apt install zsh curl tmux neovim
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"<Paste>
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/daonb/fittest-ide/master/install.sh)"
 ```
 
-Now that you have all the parts install, you need to configure the big three.
-We'll start with zsh, where for now we will configure the theme
-and set it to random:
-
-```bash
-sed -e  <to replace the theme> ~/.zshrc
-```
