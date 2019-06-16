@@ -101,12 +101,15 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 #
-# *** Fittest IDE ***
-alias zshconfig="nvim ~/.zshrc"
-alias vi=nvim
 # liquidprompt
 [[ $- = *i* ]] && source ~/src/liquidprompt/liquidprompt
 # pyenv
 export PATH="/home/daonb/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+#
+# *** Fittest IDE ***
+#
+alias zshconfig="nvim ~/.zshrc"
+alias vi=nvim
+alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
