@@ -1,14 +1,13 @@
 #  Instlfittest-ide
-### A repo dedicated to a tmux-zsh-vim IDE, the fittest of them all!
+
+### A repo dedicated to a vi-zsh-tmux-etc IDE, the fittest of them all!
 
 ## Installation
 
-[TODO]
-
-
-Assuming you use a debian based OS:
+### Debian
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/daonb/fittest-ide/master/install.sh)"
+sudo apt install zsh curl tmux neovim
 ```
 
+TODO: dotfiles install script and instructions
