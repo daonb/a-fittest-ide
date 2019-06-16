@@ -4,7 +4,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'VundleVim/Vundle.vim'
 " Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 " Plug 'tmhedberg/SimpylFold'
