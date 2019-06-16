@@ -12,6 +12,4 @@ For now, we've only tested on Linux Mint 19.
 make install
 ```
 
-TODO: liquidprompt install
-`
-
+Start a new shell or `source ~/.zshrc` and enjoy the fruits of evolution.
