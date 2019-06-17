@@ -10,12 +10,14 @@ $(lp_path): $(home)
 
 install: $(lp_path) shell
 	mkdir -p ~/.vim/autoload
-	cp plugins/plug.vim ~/.vim/autoload
 	mkdir -p ~/.config/nvim
+	mkdir -p ~/.tmux
+	cp plugins/plug.vim ~/.vim/autoload
 	cp config/init.vim ~/.config/nvim
 	cp config/liquidpromptrc ~/.config
 	cp config/tmux.conf ~/.tmux.conf
 	cp config/zshrc ~/.zshrc
+	cp config/tmux_skin.conf ZZ~/.tmux/skin.conf
 
 shell:
 	chsh -s `which zsh`
