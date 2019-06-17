@@ -25,7 +25,7 @@ shell:
 
 nvim:
 	if [ ! -e /usr/bin/nvim ]; then \
-		curl -fLo /tmp/nvim https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage; \
+		curl -fLo /tmp/nvim https://github.com/neovim/neovim/releases/download/v0.3.7/nvim.appimage; \
 		chmod u+x /tmp/nvim; \
 		sudo mv /tmp/nvim /usr/bin/nvim; \
 	fi
