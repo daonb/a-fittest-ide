@@ -17,7 +17,7 @@ install: $(lp_path) shell
 	cp config/liquidpromptrc ~/.config
 	cp config/tmux.conf ~/.tmux.conf
 	cp config/zshrc ~/.zshrc
-	cp config/tmux_skin.conf ZZ~/.tmux/skin.conf
+	cp config/tmux_skin.conf ~/.tmux/skin.conf
 
 shell:
 	chsh -s `which zsh`
