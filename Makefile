@@ -1,6 +1,8 @@
 # Fittest-IDE Makefile for *NIX system. 
 home = ~/.fittestide
 lp_path = $(home)/liquidprompt
+zsh_path := $(shell which zsh)
+users_shell := $(shell getent passwd ${LOGNAME} | cut -d: -f7)
 
 $(home):
 	mkdir ~/.fittestide
@@ -21,7 +23,10 @@ install: $(lp_path) pyenv nvim shell
 	cp config/tmux_skin.conf ~/.tmux/skin.conf
 
 shell:
-	chsh -s `which zsh`
+	if [ "$(users_shell)" != "$(zsh_path)" ]; then \
+		echo "Changing default shell to zsh"; \
+		chsh -s $(zsh_path); \
+	fi
 
 nvim:
 	if [ ! -e /usr/bin/nvim ]; then \
