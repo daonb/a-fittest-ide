@@ -8,7 +8,7 @@ $(home):
 	mkdir ~/.fittestide
 
 $(lp_path): $(home)
-	git clone git@github.com:nojhan/liquidprompt.git $(lp_path)
+	[ -d $(lp_path) ] || git clone git@github.com:nojhan/liquidprompt.git $(lp_path)
 
 install: $(lp_path) pyenv nvim shell
 	mkdir -p ~/.vim/autoload
@@ -21,6 +21,7 @@ install: $(lp_path) pyenv nvim shell
 	cp config/tmux.conf ~/.tmux.conf
 	cp config/zshrc ~/.zshrc
 	cp config/tmux_skin.conf ~/.tmux/skin.conf
+	git config --global core.editor "nvim"
 
 shell:
 	if [ "$(users_shell)" != "$(zsh_path)" ]; then \
