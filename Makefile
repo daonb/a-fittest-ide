@@ -10,18 +10,14 @@ clean:
 $(home):
 	mkdir $(home)
 
-install: pyenv nvim shell
+install: pyenv nvim shell tmux
 	mkdir -p ~/.vim/autoload
 	mkdir -p ~/.config/nvim
-	mkdir -p ~/.tmux
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp config/init.vim ~/.config/nvim
 	cp config/liquidpromptrc ~/.config
-	cp config/tmux.conf ~/.tmux.conf
 	cp config/zshrc ~/.zshrc
-	# TODO: add a `skins` fodler
-	cp config/tmux_skin.conf ~/.tmux/skin.conf
 	cp config/zsh_plugins.txt $(home)
 	git config --global core.editor "nvim"
 
@@ -40,3 +36,12 @@ nvim:
 
 pyenv:
 	if [ ! -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi
+
+tmux:
+	mkdir -p ~/.tmux
+	if [ ! -d ~/.tmux/plugins/tpm ]; then \
+		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm; \
+	fi
+	cp config/tmux.conf ~/.tmux.conf
+	# TODO: add a `skins` fodler
+	cp config/tmux_skin.conf ~/.tmux/skin.conf
