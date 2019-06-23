@@ -40,10 +40,6 @@ nvim:
 		chmod u+x /tmp/nvim; \
 		sudo mv /tmp/nvim /usr/bin/nvim; \
 	fi
-	# TODO: create py3nvim and py2nvim virtual envs
-	#       https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-	python3 -m pip install --user --upgrade pynvim
-	pip2 install --user --upgrade pynvim
 
 pyenv:
 	if [ ! -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi
