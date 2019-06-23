@@ -10,17 +10,14 @@ clean:
 $(home):
 	mkdir $(home)
 
-$(lp_path): $(home)
-	[ -d $(lp_path) ] || git clone git@github.com:nojhan/liquidprompt.git $(lp_path)
-
-install: $(lp_path) pyenv nvim shell
+install: pyenv nvim shell
 	mkdir -p ~/.vim/autoload
 	mkdir -p ~/.config/nvim
 	mkdir -p ~/.tmux
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp config/init.vim ~/.config/nvim
-	# cp config/liquidpromptrc ~/.config
+	cp config/liquidpromptrc ~/.config
 	cp config/tmux.conf ~/.tmux.conf
 	cp config/zshrc ~/.zshrc
 	# TODO: add a `skins` fodler
