@@ -16,7 +16,7 @@ alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%
 # liquidprompt
 # [[ $- = *i* ]] && source ~/.ide/liquidprompt/liquidprompt
 # pyenv
-# export PATH="~/.pyenv/bin:$PATH"
+export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 # antibody
