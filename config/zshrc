@@ -13,8 +13,6 @@ alias ll='ls -l'
 alias zshconfig="nvim ~/.zshrc"
 alias vi=nvim
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-# liquidprompt
-# [[ $- = *i* ]] && source ~/.ide/liquidprompt/liquidprompt
 # pyenv
 export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
