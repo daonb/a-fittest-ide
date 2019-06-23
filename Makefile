@@ -1,11 +1,14 @@
 # Fittest-IDE Makefile for *NIX system. 
-home = ~/.fittestide
+home = ~/.ide
 lp_path = $(home)/liquidprompt
 zsh_path := $(shell which zsh)
 users_shell := $(shell getent passwd ${LOGNAME} | cut -d: -f7)
 
+clean:
+	rm -rf $(home)
+
 $(home):
-	mkdir ~/.fittestide
+	mkdir $(home)
 
 $(lp_path): $(home)
 	[ -d $(lp_path) ] || git clone git@github.com:nojhan/liquidprompt.git $(lp_path)
@@ -17,10 +20,12 @@ install: $(lp_path) pyenv nvim shell
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp config/init.vim ~/.config/nvim
-	cp config/liquidpromptrc ~/.config
+	# cp config/liquidpromptrc ~/.config
 	cp config/tmux.conf ~/.tmux.conf
 	cp config/zshrc ~/.zshrc
+	# TODO: add a `skins` fodler
 	cp config/tmux_skin.conf ~/.tmux/skin.conf
+	cp config/zsh_plugins.txt $(home)
 	git config --global core.editor "nvim"
 
 shell:

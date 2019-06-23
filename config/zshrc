@@ -4,136 +4,23 @@
 
 export EDITOR='nvim'
 export VISUAL=$EDITOR
-export LSCOLORS='exfxcxdxbxegedabagacad'
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-export WORDCHARS='*?_[]~=&;!#$%^(){}'
-export FZF_DEFAULT_OPTS='--reverse --color="info:#000000,spinner:#000000" --prompt="  "'
-export HISTFILE=~/.zsh_history
-export HISTSIZE=100000
-export SAVEHIST=$HISTSIZE
-export PAGER=less
-export GIT_PAGER='less -F -X'
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[00;47;30m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-export GREP_COLORS=auto
-export GREP_COLOR=auto
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-export PATH=$HOME/.bin
-export PATH=$PATH:./node_modules/.bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/bin
-export PATH=$PATH:/usr/sbin
-export PATH=$PATH:/sbin
-
-#############################
-### General configuration ###
-#############################
-
-setopt no_beep
-setopt interactive_comments
-setopt prompt_subst
-
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt pushd_minus
-setopt pushd_silent
-
-setopt append_history
-setopt inc_append_history
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_all_dups
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt share_history
-
-setopt hup
-setopt long_list_jobs
-setopt notify
-
-autoload -U compinit
-compinit
-zstyle ':completion:*' menu select
-zstyle ':completion:*:default' list-colors ''
-# case-insensitive, partial-word, and then substring completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' completer _complete _approximate
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-
-#############################
-### Plugins configuration ###
-#############################
-
-# source ~/.zsh/z.sh
-# unalias z
-
-expand-or-complete-with-waiting-dots() {
-  echo -n "\e[31m......\e[0m"
-  zle expand-or-complete
-  zle redisplay
-}
-
-insert-last-command-output() {
-  LBUFFER+="$(eval $history[$((HISTCMD-1))])"
-}
-
-fancy-ctrl-z() {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-
-exit-shell() {
-  exit
-}
-
-start-paste() {
-  bindkey -A paste main
-}
-
-end-paste() {
-  bindkey -e
-  LBUFFER+=$_paste_content
-  unset _paste_content
-}
-
-paste-insert() {
-  _paste_content+=$KEYS
-}
-
-#############
-### Other ###
-#############
-
 #
 # *** Fittest IDE ***
 #
 # 
 setopt nosharehistory
+alias ll='ls -l'
 alias zshconfig="nvim ~/.zshrc"
 alias vi=nvim
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # liquidprompt
-[[ $- = *i* ]] && source ~/.fittestide/liquidprompt/liquidprompt
+# [[ $- = *i* ]] && source ~/.ide/liquidprompt/liquidprompt
 # pyenv
-export PATH="/home/daonb/.pyenv/bin:$PATH"
+# export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-# LAST LINE - start tmux
-if [ -z $TMUX ] && [ -z $VIM ]; then; tmux-start; fi
+# antibody
+source <(antibody init)
+antibody bundle < ~/.ide/zsh_plugins.txt
+# LAST LINE - start tmux if not altready there
+if [ -z $TMUX ] && [ -z $VIM ]; then; tmux; fi

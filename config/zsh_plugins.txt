@@ -1,0 +1,29 @@
+djui/alias-tips
+# comments are supported like this
+caarlos0/zsh-mkc
+zsh-users/zsh-completions
+caarlos0/zsh-open-github-pr
+
+# empty lines are skipped
+
+# annotations are also allowed:
+robbyrussell/oh-my-zsh path:plugins/cp
+robbyrussell/oh-my-zsh path:plugins/django
+robbyrussell/oh-my-zsh path:plugins/docker
+robbyrussell/oh-my-zsh path:plugins/docker-compose
+robbyrussell/oh-my-zsh path:plugins/fabric
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/man
+robbyrussell/oh-my-zsh path:plugins/pip
+robbyrussell/oh-my-zsh path:plugins/pipenv
+robbyrussell/oh-my-zsh path:plugins/pyenv
+robbyrussell/oh-my-zsh path:plugins/python
+robbyrussell/oh-my-zsh path:plugins/redis-cli
+robbyrussell/oh-my-zsh path:plugins/sudo
+robbyrussell/oh-my-zsh path:plugins/tmux
+robbyrussell/oh-my-zsh path:plugins/vi-mode
+robbyrussell/oh-my-zsh path:plugins/virtualenv
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+nojhan/liquidprompt
