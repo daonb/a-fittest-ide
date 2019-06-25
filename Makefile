@@ -10,7 +10,7 @@ clean:
 $(home):
 	mkdir $(home)
 
-install: pyenv nvim shell tmux
+install: $(home) pyenv nvim shell tmux
 	mkdir -p ~/.vim/autoload
 	mkdir -p ~/.config/nvim
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
