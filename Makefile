@@ -17,15 +17,16 @@ install: $(home) pyenv nvim shell tmux
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp config/init.vim ~/.config/nvim
 	cp config/liquidpromptrc ~/.config
-	cp config/zshrc ~/.zshrc
-	cp config/zsh_plugins.txt $(home)
 	git config --global core.editor "nvim"
 
-shell:
+shell: $(home)
+	cp config/zshrc ~/.zshrc
+	cp config/zsh_plugins.txt $(home)
 	if [ "$(users_shell)" != "$(zsh_path)" ]; then \
 		echo "Changing default shell to zsh"; \
 		chsh -s $(zsh_path); \
 	fi
+	echo "now run 'exec $(zsh_path)'"
 
 nvim:
 	if [ ! -e /usr/bin/nvim ]; then \
