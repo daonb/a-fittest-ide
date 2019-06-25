@@ -30,10 +30,11 @@ Next, install antibody, pyenv, latest python and the virtual envs required:
 
 Open a new termianl and enjoy the fruits of evolution.
 
-## Further Reading
+## Inspiration
 
 * Dr. Bunsen: [The Text Triumvirate](https://www.drbunsen.org/the-text-triumvirate/)
 * Jannis Hemanns: [The iPad Pro as main computer for programming](https://jann.is/ipad-pro-for-programming/)
+* Doug Black: [Adding vim to your zsh](https://dougblack.io/words/zsh-vi-mode.html)
 
 ## Sites
 
