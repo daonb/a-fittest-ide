@@ -35,6 +35,7 @@ Open a new termianl and enjoy the fruits of evolution.
 * Dr. Bunsen: [The Text Triumvirate](https://www.drbunsen.org/the-text-triumvirate/)
 * Jannis Hemanns: [The iPad Pro as main computer for programming](https://jann.is/ipad-pro-for-programming/)
 * Doug Black: [Adding vim to your zsh](https://dougblack.io/words/zsh-vi-mode.html)
+* Keggan Lowenstein: [Tmux and Vim - even better together](https://www.bugsnag.com/blog/tmux-and-vim)
 
 ## Sites
 
