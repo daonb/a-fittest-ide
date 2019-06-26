@@ -1,4 +1,4 @@
-#  Fittest-IDE 
+#  A Fittest IDE
 
 ### A repo dedicated to a vi-zsh-tmux-etc IDE
 
@@ -40,5 +40,4 @@ Open a new termianl and enjoy the fruits of evolution.
 ## Sites
 
 * [vim-awesome](https://vimawesome.com/)
-
 * [dotfiles](http://dotfiles.github.io/)
