@@ -57,5 +57,6 @@ If you decide it's not for you just `afide uninstall` and we'll remove ourselvs 
 * Doug Black: [Adding vim to your zsh](https://dougblack.io/words/zsh-vi-mode.html)
 * Keggan Lowenstein: [Tmux and Vim - even better together](https://www.bugsnag.com/blog/tmux-and-vim)
 * Michel Lopp: [The Foamy rules for rabid tools](https://randsinrepose.com/archives/the-foamy-rules-for-rabid-tools/)
+* Fatih Arslan: [Using the iPad Pro as my development machine](https://arslan.io/2019/01/07/using-the-ipad-pro-as-my-development-machine/)
 * [vim-awesome](https://vimawesome.com/)
 * [dotfiles](http://dotfiles.github.io/)
