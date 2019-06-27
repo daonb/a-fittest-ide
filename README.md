@@ -41,8 +41,8 @@ Next, install antibody, pyenv, latest python and the virtual envs required:
     pyenv activate afide2 && pip install neovim
     pyenv virtualenv 3.7.3 afide3
     pyenv activate afide3 && pip install neovim
-    git clone https://github.com/the-fittest-ide/my-fittest-ide.git
-    cd my-fittest-de
+    git clone https://github.com/the-fittest-ide/a-fittest-ide.git ~/.afide
+    cd ~/.afide
     make install
 
 Open a new `zsh` and enjoy the fruits of evolution.
