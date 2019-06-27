@@ -10,7 +10,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 # antibody
 source <(antibody init)
-antibody bundle < ~/.ide/zsh_plugins.txt
+antibody bundle < ~/.afide/config/zsh_plugins.txt
 # *** Fittest IDE ***
 bindkey -v
 setopt nosharehistory

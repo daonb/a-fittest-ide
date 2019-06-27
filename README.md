@@ -37,10 +37,10 @@ Next, install antibody, pyenv, latest python and the virtual envs required:
     exec "SHELL"
     pyenv install 2.7.15
     pyenv install 3.7.3
-    pyenv virtualenv 2.7.15 mfi2
-    pyenv activate mfi2 && pip install neovim
-    pyenv virtualenv 3.7.3 mfi3
-    pyenv activate mfi3 && pip install neovim
+    pyenv virtualenv 2.7.15 afide2
+    pyenv activate afide2 && pip install neovim
+    pyenv virtualenv 3.7.3 afide3
+    pyenv activate afide3 && pip install neovim
     git clone https://github.com/the-fittest-ide/my-fittest-ide.git
     cd my-fittest-de
     make install
