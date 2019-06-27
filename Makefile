@@ -12,11 +12,11 @@ $(backup_path):
 	mkdir -p $(backup_path)
 
 install: $(backup_path) pyenv nvim shell tmux
-	ln -sb $(home)/config/liquidpromptrc ~/.config
+	ln -s --backup=t $(home)/config/liquidpromptrc ~/.config
 	git config --global core.editor "nvim"
 
 shell: $(home)
-	ln -sb $(home)/config/zshrc ~/.zshrc
+	ln -s --backup=t $(home)/config/zshrc ~/.zshrc
 	if [ "$(users_shell)" != "$(zsh_path)" ]; then \
 		echo "Changing default shell to zsh"; \
 		chsh -s $(zsh_path); \
@@ -33,7 +33,7 @@ nvim:
 	mkdir -p ~/.config/nvim
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	ln -sb $(home)/config/init.vim 
+	ln -s --backup=t $(home)/config/init.vim
 
 pyenv:
 	if [ ! -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi
@@ -43,4 +43,4 @@ tmux:
 	if [ ! -d ~/.tmux/plugins/tpm ]; then \
 		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm; \
 	fi
-	ln -sb $(home)/config/tmux.conf ~/.tmux.conf
+	ln -s --backup=t $(home)/config/tmux.conf ~/.tmux.conf
