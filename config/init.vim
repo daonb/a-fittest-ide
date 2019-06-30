@@ -18,6 +18,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-obsession'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-airline/vim-airline'
 " do some research on:
 " youcompleteme plugin for auto completion
 " slime
