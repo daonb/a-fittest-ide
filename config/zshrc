@@ -10,7 +10,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 # antibody
 source <(antibody init)
-antibody bundle < ~/.ide/zsh_plugins.txt
+antibody bundle < ~/.afide/config/zsh_plugins.txt
 # *** Fittest IDE ***
 bindkey -v
 setopt nosharehistory
@@ -19,4 +19,4 @@ alias zshconfig="nvim ~/.zshrc"
 alias vi=nvim
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # LAST LINE - start tmux if not altready there
-if [ -z $TMUX ] && [ -z $VIM ]; then; tmux; fi
+[ -z $TMUX ] && [ -z $VIM ] && tmux new-session -ADs afide

@@ -1,27 +1,22 @@
 # Fittest-IDE Makefile for *NIX system. 
-home = ~/.ide
+home = $(shell pwd)
 lp_path = $(home)/liquidprompt
+backup_path = $(home)/backup_path
 zsh_path := $(shell which zsh)
 users_shell := $(shell getent passwd ${LOGNAME} | cut -d: -f7)
 
 clean:
 	rm -rf $(home)
 
-$(home):
-	mkdir $(home)
+$(backup_path):
+	mkdir -p $(backup_path)
 
-install: $(home) pyenv nvim shell tmux
-	mkdir -p ~/.vim/autoload
-	mkdir -p ~/.config/nvim
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	cp config/init.vim ~/.config/nvim
-	cp config/liquidpromptrc ~/.config
+install: $(backup_path) pyenv nvim shell tmux
+	ln -s --backup=t $(home)/config/liquidpromptrc ~/.config
 	git config --global core.editor "nvim"
 
 shell: $(home)
-	cp config/zshrc ~/.zshrc
-	cp config/zsh_plugins.txt $(home)
+	ln -s --backup=t $(home)/config/zshrc ~/.zshrc
 	if [ "$(users_shell)" != "$(zsh_path)" ]; then \
 		echo "Changing default shell to zsh"; \
 		chsh -s $(zsh_path); \
@@ -34,6 +29,11 @@ nvim:
 		chmod u+x /tmp/nvim; \
 		sudo mv /tmp/nvim /usr/bin/nvim; \
 	fi
+	mkdir -p ~/.vim/autoload
+	mkdir -p ~/.config/nvim
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	ln -s --backup=t $(home)/config/init.vim
 
 pyenv:
 	if [ ! -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi
@@ -43,6 +43,4 @@ tmux:
 	if [ ! -d ~/.tmux/plugins/tpm ]; then \
 		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm; \
 	fi
-	cp config/tmux.conf ~/.tmux.conf
-	# TODO: add a `skins` fodler
-	cp config/tmux_skin.conf ~/.tmux/skin.conf
+	ln -s --backup=t $(home)/config/tmux.conf ~/.tmux.conf
