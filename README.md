@@ -13,8 +13,9 @@ link the files under `~/.afide/config` to their proper place:
 
 ### Making Changes
 
-If you want to change something, go ahead and edit one of the config files.
-Just don't forget to reset:
+If you want to change something, go ahead and edit one of the files.
+All the configuration files are grouped into two directories: `/config` and
+'/skin'.  After editing one of the files, you'll need to reset the tool:
 
 * `exec zsh` when you change a `zsh*` file
 * CTRL-aI for `tmux*` files
