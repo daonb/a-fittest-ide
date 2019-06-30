@@ -11,28 +11,32 @@ clean:
 $(backup_path):
 	mkdir -p $(backup_path)
 
-install: $(backup_path) pyenv nvim shell tmux
+install: $(backup_path) pyenv nvim zsh tmux
 	ln -s --backup=t $(home)/config/liquidpromptrc ~/.config
-	tmux source-file ~/.tmux.conf
 	echo "Installation is done. Please refresh your shell "
 
-shell: $(home)
+zsh: $(home)
 	ln -s --backup=t $(home)/config/zshrc ~/.zshrc
 	if [ "$(users_shell)" != "$(zsh_path)" ]; then \
 		chsh -s $(zsh_path); \
 	fi
 
+docker-start: $(pyenv) $(zsh) $(tmux) $(nvim)
+	ln -s --backup=t $(home)/config/liquidpromptrc ~/.config
+	ln -s --backup=t $(home)/config/init.vim ~/.config/nvim
+	tmux
+
+docker:
+	docker build -t afide .
+	docker run -ti afide make docker-start
+
 nvim:
-	if [ ! -e /usr/bin/nvim ]; then \
-		curl -fLo /tmp/nvim https://github.com/neovim/neovim/releases/download/v0.3.7/nvim.appimage; \
-		chmod u+x /tmp/nvim; \
-		sudo mv /tmp/nvim /usr/bin/nvim; \
-	fi
 	mkdir -p ~/.vim/autoload
 	mkdir -p ~/.config/nvim
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	[ ! -e ~/.local/share/nvim/site/autoload/plug.vim ] &&\
+		curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	ln -s --backup=t $(home)/config/init.vim
+	ln -s --backup=t $(home)/config/init.vim ~/.config/nvim
 	git config --global core.editor "nvim"
 
 pyenv:

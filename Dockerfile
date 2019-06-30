@@ -63,5 +63,6 @@ RUN /root/.pyenv/bin/pyenv virtualenv 3.7.3 afide3 &&\
         /root/.pyenv/versions/afide3/bin/pip install neovim jedi mistune psutil setproctitle
 # Install antibody
 RUN curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
-COPY . /root/.afide
-CMD cd /root/.afide && make install
+COPY . /root/.afide/
+WORKDIR /root/.afide
+CMD make install
