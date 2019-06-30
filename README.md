@@ -33,7 +33,6 @@ Next, install antibody, pyenv, latest python and the virtual envs required:
 
     curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
     curl https://pyenv.run | zsh
-    	git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
     exec "SHELL"
     pyenv install 2.7.15
     pyenv install 3.7.3
