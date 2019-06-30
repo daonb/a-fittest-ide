@@ -1,8 +1,14 @@
 #  A Fittest IDE
 
-We provide a toolbox with smart, sharp tools that keep developers happy.
-It is based on neovim, tmux, zsh and their open source extensions. 
-VIM Plugins, shell frameworks and themes -we help you get started by bundling 
+We provide a box with smart, sharp tools that keep developers happy.
+The toolbox is based on:
+1. neovim (an extensible text edit that is based on the classical vi)
+2. tmux (a terminal multiplexer: lets you switch easily between several programs in one terminal)
+3. zsh (a popular shell)
+
+Further, the toolbox uses open source extensions of the core tools listed above.
+
+VIM Plugins, shell frameworks and themes - we help you get started by bundling 
 the best of bread.
 
 When you install our IDE we will backup existing user conf files and 
@@ -15,7 +21,7 @@ link the files under `~/.afide/config` to their proper place:
 
 If you want to change something, go ahead and edit one of the files.
 All the configuration files are grouped into two directories: `/config` and
-'/skin'.  After editing one of the files, you'll need to reset the tool:
+'/skin'.  Just don't forget to reset, to get your changes kick in:
 
 * `exec zsh` when you change a `zsh*` file
 * CTRL-aI for `tmux*` files
