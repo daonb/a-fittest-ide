@@ -47,8 +47,10 @@ RUN make install
 RUN rm -rf /usr/local/src/tmux*
 
 # Install neovim
-RUN curl -L https://github.com/neovim/neovim/releases/download/v0.3.7/nvim.appimage -o /usr/local/bin/nvim
-RUN chmod u+x /usr/local/bin/nvim
+# TODO: compile neovim 0.3.7
+RUN add-apt-repository ppa:neovim-ppa/stable
+RUN apt-get update
+RUN apt-get install -y neovim
 # Pyenv
 RUN apt-get install -y make libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
