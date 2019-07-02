@@ -20,3 +20,5 @@ alias vi=nvim
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # LAST LINE - start tmux if not altready there
 [ -z $TMUX ] && [ -z $VIM ] && tmux new-session -ADs afide
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
