@@ -5,9 +5,6 @@ backup_path = $(home)/backup_path
 zsh_path := $(shell which zsh)
 users_shell := $(shell getent passwd ${LOGNAME} | cut -d: -f7)
 
-clean:
-	rm -rf $(home)
-
 $(backup_path):
 	mkdir -p $(backup_path)
 
