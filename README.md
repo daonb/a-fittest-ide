@@ -2,14 +2,17 @@
 
 We provide a box with smart, sharp tools that keep developers happy.
 The toolbox is based on:
-1. neovim (an extensible text edit that is based on the classical vi)
-2. tmux (a terminal multiplexer: lets you switch easily between several programs in one terminal)
-3. zsh (a popular shell)
 
-Further, the toolbox uses open source extensions of the core tools listed above.
+* neovim - an extensible text editor based on vim,vi & ex
+* tmux - a terminal multiplexer: lets you switch easily between several programs in one terminal
+* zsh - a popular shell
 
-VIM Plugins, shell frameworks and themes - we help you get started by bundling 
-the best of bread.
+To this trio we add the following addons:
+* pyenv - simple python version management
+* antibody - zsh plugin manager
+* tpm - tmux plugin manager
+* liquidprompt - the best prompt, ever
+
 
 When you install our IDE we will backup existing user conf files and 
 link the files under `~/.afide/config` to their proper place:
