@@ -14,11 +14,11 @@ antibody bundle < ~/.afide/config/zsh_plugins.txt
 # *** Fittest IDE ***
 bindkey -v
 setopt nosharehistory
-alias ll='ls -l'
+alias ll="ls -l"
 alias zshconfig="nvim ~/.zshrc"
 alias vi=nvim
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-# LAST LINE - start tmux if not altready there
-[ -z $TMUX ] && [ -z $VIM ] && tmux new-session -ADs afide
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
+# LAST LINE - start tmux if not altready there
+[ -z $TMUX ] && [ -z $VIM ] && tmux new-session -ADs afide
