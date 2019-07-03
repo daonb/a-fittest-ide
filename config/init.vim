@@ -1,35 +1,19 @@
 set nocompatible              " required
 filetype off                  " required
-
+color elflord
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.local/share/nvim/plugged')
-" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
-" Plug 'tmhedberg/SimpylFold'
-" Plug 'vim-scripts/indentpython.vim'
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'nvie/vim-flake8'
 Plug 'scrooloose/nerdtree'
 Plug 'python-mode/python-mode'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-obsession'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
-" do some research on:
-" youcompleteme plugin for auto completion
-" slime
-" vimplug
-" vimwiki
-"
 call plug#end()
-
-color elflord
 filetype plugin indent on    " required
-" execute pathogen#infect()
 syntax on
 set colorcolumn=80
 set tabstop=4
@@ -88,4 +72,3 @@ au FileType py
 " au BufNewFile,BufRead *.js, *.html, *.css
 au FileType js, html, css
     \ set tabstop=2
-
