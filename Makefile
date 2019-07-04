@@ -42,8 +42,10 @@ tmux:
 
 
 docker-test: $(pyenv) $(zsh) $(tmux) $(nvim)
-	echo "checkhealth" | nvim -e
+	echo "checkhealth" | nvim -V1 -es -u ~/.config/nvim/init.vim
+
 
 test:
+	echo "***WIP: test expected to fail and therfore undocumented ***"
 	docker build -t afide .
 	docker run afide make docker-test
