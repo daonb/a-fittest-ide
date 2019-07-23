@@ -55,7 +55,7 @@ Next, install antibody, pyenv, latest python and the virtual envs required:
     cd ~/.afide
     make install
 
-Open a new `zsh` and enjoy the fruits of evolution.
+Open a new `zsh` and type `ide` to enjoy the fruits of evolution.
 
 ### Unistalling
 If you decide it's not for you just `afide uninstall` and we'll remove ourselvs and restore the config files. 
