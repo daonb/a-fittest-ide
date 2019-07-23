@@ -1,6 +1,5 @@
 djui/alias-tips
 zsh-users/zsh-completions
-caarlos0/zsh-open-github-pr
 robbyrussell/oh-my-zsh path:plugins/cp
 robbyrussell/oh-my-zsh path:plugins/django
 robbyrussell/oh-my-zsh path:plugins/docker
@@ -17,5 +16,4 @@ robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/tmux
 robbyrussell/oh-my-zsh path:plugins/virtualenv
 zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-history-substring-search
 nojhan/liquidprompt

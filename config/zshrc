@@ -4,6 +4,9 @@
 export EDITOR='nvim'
 export VISUAL=$EDITOR
 export KEYTIMEOUT=1
+export HISTFILE=~/.zsh_history
+export HISTSIZE=5000
+export SAVEHIST=5000
 # pyenv
 export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -13,11 +16,14 @@ source <(antibody init)
 antibody bundle < ~/.afide/config/zsh_plugins.txt
 # *** A Fittest IDE ***
 bindkey -v
-setopt nosharehistory
+setopt extendedhistory
+setopt appendhistory
+setopt sharehistory
+setopt histexpiredupsfirst
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 alias vi=nvim
-alias hi=history
+alias hi="history -100"
 alias ide="[ -z $TMUX ] && [ -z $VIM ] && tmux new-session -ADs afide"
 alias ll="ls -l"
 alias zshc="nvim ~/.zshrc"
