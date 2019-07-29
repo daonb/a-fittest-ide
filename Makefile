@@ -7,13 +7,14 @@ zsh_path := $(shell which zsh)
 $(backup_path):
 	mkdir -p $(backup_path)
 
-install: $(backup_path) pyenv nvim shell tmux
+install: $(backup_path) pyenv nvim zsh tmux
 	ln -s -f $(home)/config/liquidpromptrc ~/.config
 	git config --global core.editor "nvim"
 
-shell: $(home)
+zsh: $(home)
+	if [ ! -n $(zsh_path) ]; then apt install zsh; fi
+	cp  ~/.zshrc ~/.zshrc.b4.afide
 	ln -s -f $(home)/config/zshrc ~/.zshrc
-	echo "now run 'exec $(zsh_path)'"
 
 nvim:
 	if [ ! -e /usr/bin/nvim ]; then \
