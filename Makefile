@@ -13,7 +13,7 @@ install: $(backup_path) pyenv nvim zsh tmux antibody
 
 antibody:
 	if [ ! -n "$(shell which antibody)" ]; then \
-		curl -sfL git.io/antibody | sh -s - -b /usr/local/bin; \
+		curl -sfL git.io/antibody | sh -s - -b $(home)/bin; \
 	fi
 
 zsh:
@@ -24,7 +24,7 @@ zsh:
 	ln -s -f $(home)/config/zshrc ~/.zshrc
 
 nvim:
-	if [ ! -e /usr/bin/nvim ]; then \
+	if [ ! -n /usr/bin/nvim ]; then \
 		curl -sfLo /tmp/nvim https://github.com/neovim/neovim/releases/download/v0.3.7/nvim.appimage; \
 		chmod u+x /tmp/nvim; \
 		sudo mv /tmp/nvim /usr/local/bin/nvim; \
