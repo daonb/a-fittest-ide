@@ -45,11 +45,13 @@ sudo, tmux, virualenv.
 
 If you want to change something, go ahead, fork this repo  and edit one of the
 files.  All the configuration files are grouped into two directories: `/config`
-and '/skin'.  Just don't forget to reset, to get your changes kick in:
+and '/skin'.  Run `make test` to validate your changes and reset:
 
-* `exec zsh` when you change a `zsh*` file
-* CTRL-aI for `tmux*` files
-* `:source %` after changing your `init.vim`.
+* `exec zsh` when you change a zsh file
+* CTRL-aI for tmux files
+* `:source %` after changing your init.vim`.
+
+,, TODO: add command `afide reset` to clean the mess above
 
 ## Installation
 

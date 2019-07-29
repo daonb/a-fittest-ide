@@ -33,6 +33,8 @@ nvim:
 	curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -s -f $(home)/config/init.vim ~/.config/nvim
+	nvim -es +PlugInstall
+
 pyenv:
 	if [ ! -d ~/.pyenv ]; then curl -s https://pyenv.run | bash; fi
 
@@ -45,7 +47,7 @@ tmux:
 
 
 docker-test: $(pyenv) $(zsh) $(tmux) $(nvim)
-	echo "checkhealth" | nvim -V1 -es -u ~/.config/nvim/init.vim
+	nvim -es +checkhealth && echo "PASSED: nvim ':checkhealth' succesful"
 
 
 test:
