@@ -20,7 +20,6 @@ zsh:
 	if [ ! -n "$(zsh_path)" ]; then \
 		echo "You need to install zsh yourself :-("; \
 	fi
-	cp  ~/.zshrc ~/.zshrc.b4.afide
 	ln -s -f $(home)/config/zshrc ~/.zshrc
 
 nvim:
@@ -33,7 +32,7 @@ nvim:
 	mkdir -p ~/.config/nvim
 	curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	ln -s -f $(home)/config/init.vim
+	ln -s -f $(home)/config/init.vim ~/.config/nvim
 pyenv:
 	if [ ! -d ~/.pyenv ]; then curl -s https://pyenv.run | bash; fi
 
