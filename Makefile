@@ -7,11 +7,16 @@ zsh_path := $(shell which zsh)
 $(backup_path):
 	mkdir -p $(backup_path)
 
-install: $(backup_path) pyenv nvim zsh tmux
+install: $(backup_path) pyenv nvim zsh tmux antibody
 	ln -s -f $(home)/config/liquidpromptrc ~/.config
 	git config --global core.editor "nvim"
 
-zsh: $(home)
+antibody:
+	if [ ! -n "$(shell which antibody)" ]; then \
+		curl -sfL git.io/antibody | sh -s - -b /usr/local/bin; \
+	fi
+
+zsh:
 	if [ ! -n "$(zsh_path)" ]; then \
 		echo "You need to install zsh yourself :-("; \
 	fi
