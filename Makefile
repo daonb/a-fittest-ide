@@ -12,7 +12,9 @@ install: $(backup_path) pyenv nvim zsh tmux
 	git config --global core.editor "nvim"
 
 zsh: $(home)
-	if [ ! -n $(zsh_path) ]; then apt install zsh; fi
+	if [ ! -n "$(zsh_path)" ]; then \
+		echo "You need to install zsh yourself :-("; \
+	fi
 	cp  ~/.zshrc ~/.zshrc.b4.afide
 	ln -s -f $(home)/config/zshrc ~/.zshrc
 
