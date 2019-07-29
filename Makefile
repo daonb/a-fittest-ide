@@ -25,17 +25,17 @@ zsh:
 
 nvim:
 	if [ ! -e /usr/bin/nvim ]; then \
-		curl -fLo /tmp/nvim https://github.com/neovim/neovim/releases/download/v0.3.7/nvim.appimage; \
+		curl -sfLo /tmp/nvim https://github.com/neovim/neovim/releases/download/v0.3.7/nvim.appimage; \
 		chmod u+x /tmp/nvim; \
 		sudo mv /tmp/nvim /usr/local/bin/nvim; \
 	fi
 	mkdir -p ~/.vim/autoload
 	mkdir -p ~/.config/nvim
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+	curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -s -f $(home)/config/init.vim
 pyenv:
-	if [ ! -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi
+	if [ ! -d ~/.pyenv ]; then curl -s https://pyenv.run | bash; fi
 
 tmux:
 	mkdir -p ~/.tmux
