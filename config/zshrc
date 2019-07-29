@@ -16,7 +16,6 @@ eval "$(pyenv virtualenv-init -)"
 antibody() {
 	case "$1" in
 	bundle)
-        echo "b4 src $@"
         source <( $HOME/.afide/bin/antibody $@ ) \
                || $HOME/.afide/bin/antibody $@
 		;;
