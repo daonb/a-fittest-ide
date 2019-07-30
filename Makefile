@@ -50,6 +50,5 @@ docker-test: $(pyenv) $(zsh) $(tmux) $(nvim)
 
 
 test:
-	echo "***WIP: test expected to fail and therfore undocumented ***"
 	docker build -t afide .
 	docker run afide make docker-test
