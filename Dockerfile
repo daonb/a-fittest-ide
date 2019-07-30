@@ -59,4 +59,4 @@ RUN curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
 # Copy config, skin, etc
 COPY . /root/.afide/
 WORKDIR /root/.afide
-CMD make install
+CMD make install 
