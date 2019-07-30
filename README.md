@@ -13,7 +13,6 @@ To these three interfaces we we add the plugins, frameworks and skins:
 * pyenv - simple python version management
 * antibody - zsh plugin manager
 * tpm - tmux plugin manager
-* [liquid prompt](https://github.ocm/nojhan/liquidprompt) - the best prompt, ever
 
 
 When you install our IDE we will backup your conf files and 
@@ -27,19 +26,42 @@ link the files under `~/.afide/config` to their proper place:
 ### Commands
 
 * `hi` - to print last 100 commands
-* `vi` - for nvim
+* `vi` - for neovim, the 4th incaranation of `ed`, named after the 2nd
 * `ide` - to start or connect to the tmux session
 
-### Plugins Included
+### Pane navigation
 
+Using ^ for ctrl:
+
+* ^a| - split verticlly  
+* ^a- - split verticlly  
+* ^a ^h - move one pane right
+* ^a ^l - move one pane left
+* ^a ^j - move one pane down
+* ^a ^k - move one pane up
+
+### Keyboard shortcuts
+
+
+* ^a ^s - Saving current windows and panes
+* ^a ^r - Restore the last saved windows and panes
+* 
+
+
+
+### Included Projects
+
+* [liquid prompt](https://github.ocm/nojhan/liquidprompt) - the best prompt, ever
 * [alias-tips](https://github.com/djui/alias-tips) - reminding you of aliases
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * [zsh-completions](https://github.com/zsh-users/zsh-completions) - for missing completions
-
-And from [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) - cp, django,
-docker, docker-compose, fabric, git. man, pip, pienv, pyenv, python, redis-cli,
-sudo, tmux, virualenv.
-
+* [tpm](https://github.com/tmux-plugins/tpm) - tmux plugin manager
+* [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible) - sensible settings
+* [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) 
+seamless navigation between 
+* [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect'
+* [tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
+* [tmux-open](https://github.com/tmux-plugins/tmux-open)
 
 ### Making Changes
 
