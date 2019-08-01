@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'python-mode/python-mode'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-obsession'
 Plug 'vim-syntastic/syntastic'
@@ -51,7 +51,7 @@ let g:pymode_quickfix_maxheight = 1
 let g:pymode_indent = 1
 let g:pymode_rope_show_doc_bind = '<C-c>d'
 let g:pymode_rope_complete_on_dot = 0
-let g:pymode_python = 'python'
+let g:pymode_python = 'python3'
 let g:tmux_navigator_disable_when_zoomed = 1
 set foldmethod=indent
 set foldlevel=99
