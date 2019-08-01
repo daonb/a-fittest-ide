@@ -9,7 +9,7 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export ANTIBODY_HOME=~/Libary/antibody
 # pyenv
-export PATH="$HOME/.afide/bin:/.pyenv/bin:$PATH"
+export PATH="$HOME/.afide/bin:$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 # antibody
@@ -43,8 +43,9 @@ alias vi=nvim
 alias hi="history -100"
 alias ab="antibody"
 alias ide="[ -z $TMUX ] && [ -z $VIM ] && tmux new-session -ADs afide"
-alias dide="docker run -ti afide tmux new-session -ADs afide "
+alias dide="docker run -ti -v $HOME/src:/root/src -v /run/docker.sock:/var/docker.sock afide tmux new-session -ADs afide "
 alias ll="ls -l"
-alias zshc="nvim ~/.zshrc"
-alias vic="nvim ~/.config/nvim/init.vim"
+alias zshc="nvim $HOME/.afide/config/zshrc"
+alias vic="nvim $HOME/.afide/config/init.vim"
+alias tmuxc="nvim $HOME/.afide/config/tmux.conf"
 alias lg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
