@@ -24,7 +24,8 @@ RUN apt-get update && apt-get install -y \
       software-properties-common \
       tmux \
       wget \
-      zsh 
+      zsh \
+      docker
 # Pyenv
 RUN apt-get install -y make libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
@@ -38,9 +39,6 @@ RUN /root/.pyenv/bin/pyenv virtualenv 2.7.15 afide2 &&\
 RUN /root/.pyenv/bin/pyenv virtualenv 3.7.3 afide3 &&\
         /root/.pyenv/versions/afide3/bin/pip install neovim jedi mistune psutil setproctitle
 RUN chsh -s /usr/bin/zsh
-# Install docker
-RUN  curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&\
-      chmod +x /usr/local/bin/docker-compose
 # Install tmux
 WORKDIR /usr/local/src
 RUN wget https://github.com/tmux/tmux/releases/download/2.9/tmux-2.9.tar.gz
