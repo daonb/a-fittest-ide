@@ -1,7 +1,8 @@
 #  A Fittest IDE
 
-We provide a box with smart, sharp tools that keep developers happy.
-The toolbox is based on:
+We provide a cli that install, runs and manages a toolbox of smart, sharp tools 
+that keep developers happy.  All the tools in the box are open source as well
+as this repo. Our main three tools are:
 
 * zsh - a popular shell
 * tmux - a terminal multiplexer: lets you switch easily between several
@@ -27,51 +28,41 @@ seamless navigation between
 * [tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
 * [tmux-open](https://github.com/tmux-plugins/tmux-open)
 
-
-When you install our IDE we will backup your conf files and 
-link the files under `~/.afide/config` to their proper place:
-
-    $ ll ~/.zshrc
-    lrwxrwxrwx ... /home/daonb/.zshrc -> /home/daonb/.afide/config/zshrc
+But theses are just the basics. Please fork this repo change the files under 
+`conf` and `skin` to make it your own. You can also add .  Fill free to add new
+files, just make sure to add a [SHEQU](SHEQU.md) line at the top.
 
 ## Goodies
 
-### Commands
+### afide command
+
+    $ afide -h
+
+
+
+### Aliases
 
 * `hi` - to print last 100 commands
 * `vi` - for neovim, the 4th incaranation of `ed`, named after the 2nd
-* `ide` - to start or connect to the tmux session
 
 Using ^ for ctrl:
 
 ### Splitting windows:
 
-    * ^a| - split verticlly  
-    * ^a- - split verticlly  
+* ^a| - split verticlly  
+* ^a- - split verticlly  
 
 ### Pane Navigation:
 
-    * ^a ^h - move one pane right
-    * ^a ^l - move one pane left
-    * ^a ^j - move one pane down
-    * ^a ^k - move one pane up
+* ^a ^h - move one pane right
+* ^a ^l - move one pane left
+* ^a ^j - move one pane down
+* ^a ^k - move one pane up
 
 ### State
 
-    * ^a ^s - Saving current windows and panes
-    * ^a ^r - Restore the last saved windows and panes
-
-### Making Changes
-
-If you want to change something, go ahead, fork this repo  and edit one of the
-files.  All the configuration files are grouped into two directories: `/config`
-and '/skin'.  Run `make test` to validate your changes and reset:
-
-* `exec zsh` when you change a zsh file
-* CTRL-aI for tmux files
-* `:source %` after changing your init.vim`.
-
-,, TODO: add command `afide reset` to clean the mess above
+* ^a ^s - Saving current windows and panes
+* ^a ^r - Restore the last saved windows and panes
 
 ## Installation
 
