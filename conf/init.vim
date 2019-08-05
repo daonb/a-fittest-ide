@@ -1,4 +1,4 @@
-"=.config/nvim/init.vim
+"=~/.config/nvim/init.vim
 set nocompatible              " required
 filetype off                  " required
 color elflord

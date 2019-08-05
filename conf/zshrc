@@ -1,3 +1,4 @@
+#=~/.zshrc
 #############################
 ### Environment variables ###
 #############################
@@ -10,6 +11,7 @@ export SAVEHIST=5000
 export ANTIBODY_HOME=~/Libary/antibody
 # pyenv
 export PATH="$HOME/.afide/bin:$HOME/.pyenv/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 # antibody
@@ -30,7 +32,7 @@ _antibody() {
 }
 compctl -K _antibody antibody
 
-antibody bundle < ~/.afide/config/zsh_plugins.txt
+antibody bundle < ~/.afide/conf/zsh_plugins.txt
 # *** A Fittest IDE ***
 bindkey -v
 setopt extendedhistory

@@ -6,6 +6,7 @@ import sys
 
 import click
 
+logger = None
 
 @dataclass
 class Config:
@@ -14,6 +15,24 @@ class Config:
     path: bool = False
     logger: object = None
 
+def link_file(target, link_name):
+    link = os.path.expanduser(link_name)
+    backup = f'{link}.b4afide'
+
+    if os.path.isfile(link) and not os.path.isfile(backup):
+        shutil.copy2(link, backup)
+        logger.info(f"    Backed up {link} => {backup}")
+
+    if os.path.isfile(link) or os.path.islink(link):
+        os.remove(link)
+
+
+    link_dir = os.path.dirname(link)
+    if not os.path.isdir(link_dir):
+        os.makedirs(link_dir)
+
+    os.symlink(target, link)
+    logger.info(f"    Linked {link} => {target}")
 
 @click.group()
 @click.option('-v', '--verbose', default=False, is_flag=True, help='Be more verbose')
@@ -22,6 +41,8 @@ class Config:
               help='Where is the afide? default ~/.afide')
 @click.pass_context
 def cli(ctx, verbose, debug, path):
+    global logger
+
     logger = logging.getLogger()
     ctx.obj = Config(verbose, debug, os.path.expanduser(path), logger)
     if verbose:
@@ -44,21 +65,18 @@ def install(ctx):
     conf_path = os.path.join(ctx.obj.path, 'conf')
     for dirpath, dirnames, filenames in os.walk(conf_path):
         for fname in filenames:
-            logger.debug(f">>> {dirpath}/{fname}")
-            filepath = os.path.join(dirpath, fname)
-            with open(filepath, 'r') as f:
-                first_line = f.read()
+            target = os.path.join(dirpath, fname)
+            logger.debug(f">>> {target}")
+            with open(target, 'r') as f:
+                first_line = f.readline()
                 logger.debug(f"    first line: {first_line}")
                 if first_line[1] != '=':
-                    logger.error(f"ERROR: File {filepath} is missing a SHEQU")
-                    ctx.invoke(uninstall)
-                    exit(1)
-                target = first_line[2:]
-            try:
-                shutil.move(target, f'{target}.b4afide')
-            except FileNotFoundError:
-                continue
-            os.symlink(filepath, target)
+                    logger.info(f"     Skipping")
+                    continue
+                link_name = first_line[2:-1]
+
+            if link_name:
+                link_file(target, link_name)
 
 @cli.command()
 def run():
