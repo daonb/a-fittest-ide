@@ -6,7 +6,7 @@ ENV LANG=en_US.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y locales && locale-gen en_US.UTF-8
 # Colors and italics for tmux
-COPY config/xterm-256color-italic.terminfo /root
+COPY conf/xterm-256color-italic.terminfo /root
 RUN tic /root/xterm-256color-italic.terminfo
 ENV TERM=xterm-256color-italic
 
@@ -57,4 +57,5 @@ RUN curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
 # Copy config, skin, etc
 COPY . /root/.afide/
 WORKDIR /root/.afide
-CMD make install 
+RUN /root/.pyenv/versions/afide3/bin/pip install .
+RUN /root/.pyenv/versions/afide3/bin/afide --debug install
