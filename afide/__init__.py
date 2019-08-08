@@ -30,7 +30,6 @@ def link_file(target, link_name):
     if os.path.isfile(link) or os.path.islink(link):
         os.remove(link)
 
-
     link_dir = os.path.dirname(link)
     if not os.path.isdir(link_dir):
         os.makedirs(link_dir)
